@@ -1,23 +1,15 @@
-project "App"
-   kind "ConsoleApp"
+project "Flight-Simulator-Core"
+   kind "StaticLib"
    language "C++"
    cppdialect "C++20"
    targetdir "Binaries/%{cfg.buildcfg}"
    staticruntime "off"
 
-   files { "Source/**.h", "Source/**.cpp" }
+   files { "Source/**.h", "Source/**.cpp", "Source/**.c" }
 
    includedirs
    {
-      "Source",
-
-	  -- Include Core
-	  "../Core/Source"
-   }
-
-   links
-   {
-      "Core"
+      "Source"
    }
 
    targetdir ("../Binaries/" .. OutputDir .. "/%{prj.name}")
@@ -25,7 +17,7 @@ project "App"
 
    filter "system:windows"
        systemversion "latest"
-       defines { "WINDOWS" }
+       defines { }
 
    filter "configurations:Debug"
        defines { "DEBUG" }

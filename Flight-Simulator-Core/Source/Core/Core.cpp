@@ -9,5 +9,4 @@ namespace Core {
 		std::cout << "Hello World!\n";
 		std::cin.get();
 	}
-
 }
